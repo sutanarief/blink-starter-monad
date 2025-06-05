@@ -118,6 +118,12 @@ export const POST = async (req: Request) => {
         });
 
     } catch (error) {
-        // Error handling
+      console.error("Donate API error:", error);
+      return new Response(JSON.stringify({
+          error: "Failed to create donation transaction"
+      }), {
+          status: 500,
+          headers,
+      });
     }
 }
